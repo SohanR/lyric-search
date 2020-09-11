@@ -41,7 +41,7 @@ function showData(data) {
             ${
               data.prev
                 ? `
-            <button class="btn btn-primary" onclick="getMoreSong('${data.prev}')">Prev</button>
+            <button class="btn btn-primary" onclick="getMoreSongs('${data.prev}')">Prev</button>
             `
                 : ""
             }
@@ -49,7 +49,7 @@ function showData(data) {
             ${
               data.next
                 ? `
-            <button class="btn btn-primary" onclick="getMoreSong('${data.next}')">Next</button>
+            <button class="btn btn-primary" onclick="getMoreSongs('${data.next}')">Next</button>
             `
                 : ""
             }
@@ -58,6 +58,16 @@ function showData(data) {
     more.innerHTML = "";
   }
 }
+
+//pagiantion
+function getMoreSongs(url) {
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      showData(data);
+    });
+}
+
 //event listeners
 
 form.addEventListener("submit", (e) => {
