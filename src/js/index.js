@@ -35,8 +35,29 @@ function showData(data) {
               .join("")}
         </ul>
     `;
-}
 
+  if (data.prev || data.next) {
+    more.innerHTML = `
+            ${
+              data.prev
+                ? `
+            <button class="btn btn-primary" onclick="getMoreSong('${data.prev}')">Prev</button>
+            `
+                : ""
+            }
+
+            ${
+              data.next
+                ? `
+            <button class="btn btn-primary" onclick="getMoreSong('${data.next}')">Next</button>
+            `
+                : ""
+            }
+        `;
+  } else {
+    more.innerHTML = "";
+  }
+}
 //event listeners
 
 form.addEventListener("submit", (e) => {
