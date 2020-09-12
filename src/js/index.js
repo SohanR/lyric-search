@@ -88,3 +88,16 @@ form.addEventListener("submit", (e) => {
 
   search.value = "";
 });
+
+//Get lyrics button event
+result.addEventListener("click", (e) => {
+  const ClickBtn = e.target;
+
+  //checking is it clicking get lyrics button or not
+  if (ClickBtn.tagName === "BUTTON") {
+    const artist = ClickBtn.getAttribute("data-artist");
+    const songTitle = ClickBtn.getAttribute("data-songTitle");
+
+    getLyrics();
+  }
+});
