@@ -19,8 +19,6 @@ function searchSong(term) {
 
 //showing data in DOM
 function showData(data) {
-  console.log(data);
-
   result.innerHTML = `
         <ul class="songs">
             ${data.data
@@ -73,6 +71,20 @@ function getMoreSongs(url) {
     });
 }
 
+//get lyrics from song
+async function getLyrics(artist, songTitle) {
+  const res = await fetch(`${apiUrl}/v1/${artist}/${songTitle}`);
+
+  const data = await res.json();
+
+  const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
+
+  result.innerHTML = `<h2><strong>${artist}</strong> - ${songTitle}</h2>
+  <span>${lyrics}</span>`;
+
+  more.innerHTML = "";
+}
+
 //event listeners
 
 form.addEventListener("submit", (e) => {
@@ -98,6 +110,6 @@ result.addEventListener("click", (e) => {
     const artist = ClickBtn.getAttribute("data-artist");
     const songTitle = ClickBtn.getAttribute("data-songTitle");
 
-    getLyrics();
+    getLyrics(artist, songTitle);
   }
 });
