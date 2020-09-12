@@ -59,9 +59,14 @@ function showData(data) {
   }
 }
 
+window.getMoreSongs = getMoreSongs; //https://stackoverflow.com/questions/63856039/uncaught-referenceerror-getmoresongsfunction-is-not-defined-onclick?noredirect=1#comment112919126_63856039
+
 //pagiantion
 function getMoreSongs(url) {
-  fetch(url)
+  //bcz of Cross-Origin Request Blocked,
+  //https://github.com/Rob--W/cors-anywhere
+
+  fetch(`https://cors-anywhere.herokuapp.com/${url}`) //bcz of Cross-Origin Request Blocked,
     .then((res) => res.json())
     .then((data) => {
       showData(data);
