@@ -1,6 +1,6 @@
 # A Lyrics Search web app.
 
-## Here i use free api which is [Lyrics.ovh]("https://lyricsovh.docs.apiary.io/")
+## Here i use free api which is [Lyrics.ovh](https://lyricsovh.docs.apiary.io/)
 
 # Features
 
