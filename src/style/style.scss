@@ -43,4 +43,48 @@ header * {
   width: 70%;
   border: 0;
   border-radius: 50px;
+
+  .form-control:not(:last-child) {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+  }
+}
+
+#result {
+  text-align: center;
+
+  .songs {
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 10px 0;
+    }
+  }
+}
+
+.btn-info {
+  border-radius: 36px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+
+  margin: 10px;
+}
+
+.btn-primary {
+  margin: 0 10px;
+}
+
+p {
+  margin-top: 15px;
+  margin-bottom: 1rem;
+  font-size: 20px;
 }
