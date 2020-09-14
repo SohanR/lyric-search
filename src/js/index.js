@@ -26,7 +26,7 @@ function showData(data) {
                 (song) => `
                     <li>
                         <span><strong>${song.artist.name}</strong> - ${song.title}</span>
-                        <button class="btn btn-primary" data-artist="${song.artist.name}" data-songtitle="${song.title}">Get Lyrics</button>
+                        <button class="btn btn-info" data-artist="${song.artist.name}" data-songtitle="${song.title}">Get Lyrics</button>
                     </li>
                 `
               )
@@ -77,10 +77,14 @@ async function getLyrics(artist, songTitle) {
 
   const data = await res.json();
 
-  const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
+  if (data.lyrics === undefined) {
+    alert("Sorry No Lyrics Found!");
+  } else {
+    const lyrics = data.lyrics.replace(/(\r\n|\r|\n)/g, "<br>");
 
-  result.innerHTML = `<h2><strong>${artist}</strong> - ${songTitle}</h2>
+    result.innerHTML = `<h2><strong>${artist}</strong> - ${songTitle}</h2>
   <span>${lyrics}</span>`;
+  }
 
   more.innerHTML = "";
 }
